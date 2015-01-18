@@ -1,7 +1,7 @@
 ---
 # tasks file for mackerel-agent
 
-- assert: that="mackerel_agent_apikey != None"
+- assert: that="mackerel_agent_apikey != None and mackerel_agent_apikey != ''"
 
 - rpm_key: key=https://mackerel.io/assets/files/GPG-KEY-mackerel
 - template: src=mackerel.repo dest=/etc/yum.repos.d/mackerel.repo owner=root group=root mode=0644
