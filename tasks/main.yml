@@ -1,2 +1,14 @@
 ---
 # tasks file for mackerel-agent
+
+- assert: that="mackerel_agent_apikey != None"
+
+- rpm_key: key=https://mackerel.io/assets/files/GPG-KEY-mackerel
+- template: src=mackerel.repo dest=/etc/yum.repos.d/mackerel.repo owner=root group=root mode=0644
+
+- yum: name=mackerel-agent
+- template: src=mackerel-agent.conf dest=/etc/mackerel-agent/mackerel-agent.conf owner=root group=root mode=0644
+  notify:
+    - restart mackerel-agent
+
+- service: name=mackerel-agent state=started enabled=yes

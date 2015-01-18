@@ -1,2 +1,4 @@
 ---
 # handlers file for mackerel-agent
+- name: restart mackerel-agent
+  service: name=mackerel-agent state=restarted

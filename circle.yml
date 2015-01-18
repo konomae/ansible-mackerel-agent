@@ -1,0 +1,14 @@
+machine:
+  services:
+    - docker
+  environment:
+    MACKEREL_APIKEY: ""
+
+dependencies:
+  override:
+    - docker info
+    - docker pull ansible/centos7-ansible:stable
+
+test:
+  override:
+    - ./tests.sh
