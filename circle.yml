@@ -5,9 +5,13 @@ machine:
     MACKEREL_APIKEY: ""
 
 dependencies:
+  cache_directories:
+    - "~/docker"
   override:
     - docker info
+    - if [[ -e ~/docker/image.tar ]]; then docker load -i ~/docker/image.tar; fi
     - docker pull ansible/centos7-ansible:stable
+    - mkdir -p ~/docker; docker save ansible/centos7-ansible:stable > ~/docker/image.tar
 
 test:
   override:
