@@ -1,38 +1,45 @@
-Role Name
-=========
+ansible-mackerel-agent
+======================
 
-A brief description of the role goes here.
+Install `mackerel-agent`.
 
-Requirements
-------------
+[![Circle CI](https://circleci.com/gh/konomae/ansible-mackerel-agent.png?style=badge)](https://circleci.com/gh/konomae/ansible-mackerel-agent)
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+
+How To Install
+--------------
+
+```bash
+$ ansible-galaxy install https://github.com/konomae/ansible-mackerel-agent
+```
+
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+    mackerel_agent_apikey: "YOUR_API_KEY"
 
-Dependencies
-------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
 
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
     - hosts: servers
       roles:
-         - { role: username.rolename, x: 42 }
+         - { role: ansible-mackerel-agent, mackerel_agent_apikey: "YOUR_API_KEY" }
+
+
+Tests
+-----
+
+```bash
+$ docker pull ansible/centos7-ansible:stable
+$ export MACKEREL_APIKEY="YOUR_API_KEY"
+$ ./tests.sh --rm
+```
+
 
 License
 -------
 
-BSD
-
-Author Information
-------------------
-
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+MIT
