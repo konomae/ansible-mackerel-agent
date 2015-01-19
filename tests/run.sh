@@ -5,6 +5,7 @@ EXTRA_VARS="mackerel_agent_apikey=$MACKEREL_APIKEY"
 
 
 # Tests
+ansible-playbook --version
 ansible-playbook $PLAYBOOK --syntax-check
 ansible-playbook -c local -e $EXTRA_VARS $PLAYBOOK
 
