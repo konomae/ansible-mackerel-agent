@@ -3,7 +3,6 @@
 PLAYBOOK=/data/tests/playbook.yml
 EXTRA_VARS="mackerel_agent_apikey=$MACKEREL_APIKEY"
 
-
 # Tests
 ansible-playbook --version
 ansible-playbook $PLAYBOOK --syntax-check
@@ -15,6 +14,6 @@ curl -H "X-Api-Key: $MACKEREL_APIKEY" \
 	 -H "Content-Type: application/json" \
 	 -X POST -d "{}" "https://mackerel.io/api/v0/hosts/$HOSTID/retire"
 
-# Tests
+# Idempotence tests
 ansible-playbook -c local -e $EXTRA_VARS $PLAYBOOK | \
 	grep -q 'changed=0\s*unreachable=0\s*failed=0' && exit 0 || exit 1
