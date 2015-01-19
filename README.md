@@ -10,6 +10,12 @@ How To Install
 --------------
 
 ```bash
+$ ansible-galaxy install konomae.mackerel-agent
+```
+
+or
+
+```bash
 $ ansible-galaxy install https://github.com/konomae/ansible-mackerel-agent
 ```
 
@@ -26,7 +32,7 @@ Example Playbook
 
     - hosts: servers
       roles:
-         - { role: ansible-mackerel-agent, mackerel_agent_apikey: "YOUR_API_KEY" }
+         - { role: konomae.mackerel-agent, mackerel_agent_apikey: "YOUR_API_KEY" }
 
 
 Tests
