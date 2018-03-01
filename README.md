@@ -3,7 +3,7 @@ ansible-mackerel-agent
 
 Install `mackerel-agent`.
 
-[![Circle CI](https://circleci.com/gh/konomae/ansible-mackerel-agent.png?style=badge)](https://circleci.com/gh/konomae/ansible-mackerel-agent)
+[![Circle CI](https://circleci.com/gh/konomae/ansible-mackerel-agent.svg?style=svg)](https://circleci.com/gh/konomae/ansible-mackerel-agent)
 
 
 How To Install
